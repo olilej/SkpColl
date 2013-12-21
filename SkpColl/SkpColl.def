@@ -1,0 +1,7 @@
+; SkpColl.def : Declares the module parameters for the DLL.
+
+LIBRARY      "SkpCol"
+
+EXPORTS
+    ; Explicit exports can go here
+    Init_SkpCol
