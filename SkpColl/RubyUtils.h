@@ -8,13 +8,13 @@ class CRubyUtils
 {
 public:
 
-    static bool EvaluateRubyExpression(LPCTSTR expr, VALUE* pResult = NULL);
+    //static bool EvaluateRubyExpression(LPCTSTR expr, VALUE* pResult = NULL);
     static int GetRubyInt(VALUE obj);
     static bool GetRubyBool(VALUE obj);
     static double GetRubyDouble(VALUE obj);
     static void RegisterRubyObject(VALUE obj);
     static void UnregisterRubyObject(VALUE obj);
-    static CString GetRubyString(VALUE obj);
+    //static CString GetRubyString(VALUE obj);
 	static std::string GetRubystdString(VALUE obj);
     static bool IsRubyString(VALUE arg);
     static bool IsRubyInteger(VALUE arg);

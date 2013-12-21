@@ -11,12 +11,12 @@ CRubyUtils::~CRubyUtils(void)
 {
 }
 
-CString CRubyUtils::GetRubyString(VALUE obj)
-{
-    char* name = RSTRING(obj)->ptr;
-    CString str = CA2T(name);
-    return str;
-}
+//CString CRubyUtils::GetRubyString(VALUE obj)
+//{
+//    char* name = RSTRING(obj)->ptr;
+//    CString str = CA2T(name);
+//    return str;
+//}
 
 std::string CRubyUtils::GetRubystdString(VALUE obj)
 {
@@ -32,22 +32,22 @@ VALUE CRubyUtils::GetDAttribute(VALUE obj, VALUE att)
 	return rb_funcall(obj, getatt, 2, dicatt, att);
 }
 
-// Evaluate a string in Ruby and optionally return the results.
-// Returns true if the expression was evaluated OK
-// If pResult != NULL, then the result of evaluating the expression
-// will be returned there.
-bool CRubyUtils::EvaluateRubyExpression(LPCTSTR expr, VALUE* pResult)
-{
-    if( pResult ) *pResult = Qnil;
-    int state = 0;
-    VALUE val = rb_eval_string_protect(CT2A(expr), &state);
-    if( 0 == state && pResult )
-    {
-        *pResult = val;
-    }
-
-    return (state == 0);
-}
+//// Evaluate a string in Ruby and optionally return the results.
+//// Returns true if the expression was evaluated OK
+//// If pResult != NULL, then the result of evaluating the expression
+//// will be returned there.
+//bool CRubyUtils::EvaluateRubyExpression(LPCTSTR expr, VALUE* pResult)
+//{
+//    if( pResult ) *pResult = Qnil;
+//    int state = 0;
+//    VALUE val = rb_eval_string_protect(CT2A(expr), &state);
+//    if( 0 == state && pResult )
+//    {
+//        *pResult = val;
+//    }
+//
+//    return (state == 0);
+//}
 
 //=============================================================================
 
