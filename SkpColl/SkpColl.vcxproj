@@ -81,8 +81,8 @@
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\WildMagic5\SDK\Library\$(PlatformToolset)\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Wm5CoreD.lib;Wm5MathematicsD.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\WildMagic5\SDK\Library\$(PlatformToolset)\$(Platform)\$(Configuration);D:\ruby\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Wm5CoreD.lib;Wm5MathematicsD.lib;msvcrt-ruby18.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -118,8 +118,8 @@ Copy /Y "$(ProjectDir)SkpColl.rb" "D:\Program Files (x86)\SketchUp\SketchUp 2013
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\WildMagic5\SDK\Library\$(PlatformToolset)\$(Platform)\$(Configuration)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Wm5Core.lib;Wm5Mathematics.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\WildMagic5\SDK\Library\$(PlatformToolset)\$(Platform)\$(Configuration);D:\ruby\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Wm5Core.lib;Wm5Mathematics.lib;msvcrt-ruby18.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>

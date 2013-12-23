@@ -3,9 +3,8 @@
 #include <string>
 #include "EntityInfo.h"
 #include "simple_tree.h"
+#include "ruby.h"
 
-typedef unsigned long VALUE;
-typedef unsigned long ID;
 typedef tree<EntityInfo*> TreeEntity; //tree<Wm5::Pointer0<EntityInfo>>
 
 class Coll

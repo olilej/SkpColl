@@ -4,15 +4,12 @@
 #include <sstream>
 #include <ctime>
 #include "Wm5Matrix4.h"
-#include "ruby.h"
 
 
 static VALUE rCollClass;
-static VALUE _wrap_initialize(VALUE self, VALUE library);
-static VALUE _wrap_new(int argc, VALUE *argv, VALUE self);
-static void free_Coll(void* pAnc);
-static VALUE _wrap_test(VALUE self, VALUE rfileName);
 static VALUE _wrap_load_model(VALUE, VALUE);
+static VALUE allocate(VALUE self);
+static void deallocate(void* ptr);
 
 Coll::Coll()
 {
@@ -37,7 +34,7 @@ void Coll::Reset(void)
 		++it2;
 	}
 }
-
+;
 Coll* Coll::GetColl(VALUE rColl)
 {
     Coll* pExp = 0;
@@ -164,26 +161,17 @@ void Coll::Init_SkpCol()
 {
     VALUE rModule = rb_define_module("CColl");
 	rCollClass = rb_define_class_under(rModule, "Coll", rb_cObject);
-    rb_define_method(rCollClass, "initialize", VALUEFUNC(_wrap_initialize), 1);
-    rb_define_singleton_method(rCollClass, "new", VALUEFUNC(_wrap_new), -1);
+	rb_define_alloc_func(rCollClass, allocate);
 	rb_define_method(rCollClass, "load_model", VALUEFUNC(_wrap_load_model), 1);
 }
 
-
-static VALUE _wrap_initialize(VALUE self, VALUE library)
+static VALUE allocate(VALUE klass)
 {
-	return self;
+  Coll* pAnc = new Coll();
+  return Data_Wrap_Struct(klass, NULL, deallocate, pAnc);
 }
 
-static VALUE _wrap_new(int argc, VALUE *argv, VALUE self)
-{
-    Coll* pAnc = new Coll();
-    VALUE obj = Data_Wrap_Struct(rCollClass, 0, VOIDFUNC(free_Coll), pAnc);
-    rb_obj_call_init(obj, argc, argv);
-    return obj;
-}
-
-static void free_Coll(void* ptr)
+static void deallocate(void* ptr)
 {
     Coll* pAnc = (Coll*)ptr;
 	delete pAnc;

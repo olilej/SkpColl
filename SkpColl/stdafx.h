@@ -67,7 +67,5 @@
 #define ENABLE_TRACE
 #endif	
 
-
-#pragma comment(lib,"D:/ruby/lib/msvcrt-ruby18.lib")
 #pragma warning( disable : 4005 )
 #pragma warning( disable : 4996 )

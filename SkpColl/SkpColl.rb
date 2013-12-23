@@ -12,7 +12,7 @@ end
 
 def test_skp_coll
   if $coll == nil
-    $coll = CColl::Coll.new('test')
+    $coll = CColl::Coll.new
   end
   puts $coll.load_model(Sketchup.active_model)
 end
